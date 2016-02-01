@@ -12,28 +12,22 @@
  * To add a new reducer, add a file like this to the reducers folder, and
  * add it in the rootReducer.js.
  */
-
 const { CHANGE_OWNER_NAME, CHANGE_PROJECT_NAME } = require('../constants/AppConstants').default;
-import assignToEmpty from '../utils/assign';
 
-console.log(CHANGE_OWNER_NAME, CHANGE_PROJECT_NAME)
+const {Record} = require('immutable');
 
-const initialState = {
+const initialState = Record({
   projectName: 'React.js Boilerplate',
   ownerName: 'mxstbr'
-};
+});
 
 function homeReducer(state = initialState, action) {
   Object.freeze(state); // Don't mutate state directly, always use assign()!
   switch (action.type) {
     case CHANGE_OWNER_NAME:
-      return assignToEmpty(state, {
-        ownerName: action.name
-      });
+      return state.setIn(['ownerName'], action.name);
     case CHANGE_PROJECT_NAME:
-      return assignToEmpty(state, {
-        projectName: action.name
-      });
+      return state.setIn(['projectName'], action.name);
     default:
       return state;
   }
