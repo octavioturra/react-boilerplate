@@ -27,7 +27,7 @@
 // It makes more sense to have the asnyc actions before the non-async ones
 /* eslint-disable no-use-before-define */
 
-import { CHANGE_OWNER_NAME, CHANGE_PROJECT_NAME } from '../constants/AppConstants';
+const { CHANGE_OWNER_NAME, CHANGE_PROJECT_NAME } = require('../constants/AppConstants').default;
 
 export function asyncChangeProjectName(name) {
   return (dispatch) => {

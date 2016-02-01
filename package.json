@@ -5,6 +5,8 @@
   "dependencies": {
     "fontfaceobserver": "^1.5.1",
     "history": "1.17.0",
+    "immutable": "^3.7.6",
+    "key-mirror": "^1.0.1",
     "react": "^0.14.2",
     "react-dom": "^0.14.2",
     "react-redux": "^4.0.0",

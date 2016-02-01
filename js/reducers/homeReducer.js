@@ -13,8 +13,10 @@
  * add it in the rootReducer.js.
  */
 
-import { CHANGE_OWNER_NAME, CHANGE_PROJECT_NAME } from '../constants/AppConstants';
+const { CHANGE_OWNER_NAME, CHANGE_PROJECT_NAME } = require('../constants/AppConstants').default;
 import assignToEmpty from '../utils/assign';
+
+console.log(CHANGE_OWNER_NAME, CHANGE_PROJECT_NAME)
 
 const initialState = {
   projectName: 'React.js Boilerplate',
