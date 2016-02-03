@@ -12,21 +12,44 @@
  * To add a new reducer, add a file like this to the reducers folder, and
  * add it in the rootReducer.js.
  */
-const { CHANGE_OWNER_NAME, CHANGE_PROJECT_NAME } = require('../constants/AppConstants').default;
+const {
+  CHANGE_PROJECT_NAME_REQUEST,
+  CHANGE_PROJECT_NAME_ERROR,
+  CHANGE_PROJECT_NAME_SUCCESS,
+  CHANGE_OWNER_NAME_REQUEST,
+  CHANGE_OWNER_NAME_ERROR,
+  CHANGE_OWNER_NAME_SUCCESS
+} = require('../constants/AppConstants').default;
 
 const {Record} = require('immutable');
 
 const initialState = new (Record({
+  isFetching: false,
+  error: null,
   projectName: 'SellApp',
   ownerName: 'Mobii'
 }));
 
 function homeReducer(state = initialState, action) {
   switch (action.type) {
-    case CHANGE_OWNER_NAME:
-      return state.setIn(['ownerName'], action.name);
-    case CHANGE_PROJECT_NAME:
-      return state.setIn(['projectName'], action.name);
+    case CHANGE_PROJECT_NAME_REQUEST:
+    case CHANGE_OWNER_NAME_REQUEST:
+      return state
+        .setIn(['isFetching'], true)
+        .setIn(['error'], null);
+    case CHANGE_PROJECT_NAME_ERROR:
+    case CHANGE_OWNER_NAME_ERROR:
+      return state
+        .setIn(['isFetching'], false)
+        .setIn(['error'], action.payload);
+    case CHANGE_OWNER_NAME_SUCCESS:
+      return state
+        .setIn(['isFetching'], false)
+        .setIn(['ownerName'], action.payload);
+    case CHANGE_PROJECT_NAME_SUCCESS:
+      return state
+        .setIn(['isFetching'], false)
+        .setIn(['projectName'], action.payload);
     default:
       return state;
   }

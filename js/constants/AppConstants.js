@@ -9,6 +9,10 @@
 import keyMirror from 'key-mirror';
 
 export default keyMirror({
-  CHANGE_PROJECT_NAME : null,
-  CHANGE_OWNER_NAME : null
+  CHANGE_PROJECT_NAME_REQUEST : null,
+  CHANGE_PROJECT_NAME_ERROR : null,
+  CHANGE_PROJECT_NAME_SUCCESS : null,
+  CHANGE_OWNER_NAME_REQUEST : null,
+  CHANGE_OWNER_NAME_ERROR : null,
+  CHANGE_OWNER_NAME_SUCCESS : null
 });
