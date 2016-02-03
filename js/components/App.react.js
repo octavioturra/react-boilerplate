@@ -9,14 +9,25 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Logo from '../../img/logo.png';
+import { Link } from 'react-router';
 
 class App extends Component {
   render() {
     return (
-      <div className="wrapper">
-        <img className="logo" src={Logo} />
-        { this.props.children }
-      </div>
+      <main>
+        <nav className="navbar navbar-default navbar-fixed-top">
+          <Link to="/" className="navbar-brand">
+            <img alt="" src={Logo} height={25}/>
+          </Link>
+          <div className="container-fluid">
+          </div>
+        </nav>
+        <br/>
+        <br/>
+        <div>
+          { this.props.children }
+        </div>
+      </main>
     );
   }
 }

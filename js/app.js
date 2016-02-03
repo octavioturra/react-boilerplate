@@ -12,6 +12,9 @@ import 'file?name=[name].[ext]!../serviceworker.js';
 import 'file?name=[name].[ext]!../manifest.json';
 import 'file?name=[name].[ext]!../.htaccess';
 
+import 'expose?$!expose?jQuery!jquery';
+import 'bootstrap-webpack';
+
 // Check for ServiceWorker support before trying to install it
 if ('serviceWorker' in navigator) {
   navigator.serviceWorker.register('/serviceworker.js').then(() => {
