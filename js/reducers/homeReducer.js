@@ -16,13 +16,12 @@ const { CHANGE_OWNER_NAME, CHANGE_PROJECT_NAME } = require('../constants/AppCons
 
 const {Record} = require('immutable');
 
-const initialState = Record({
-  projectName: 'React.js Boilerplate',
-  ownerName: 'mxstbr'
-});
+const initialState = new (Record({
+  projectName: 'SellApp',
+  ownerName: 'Mobii'
+}));
 
 function homeReducer(state = initialState, action) {
-  Object.freeze(state); // Don't mutate state directly, always use assign()!
   switch (action.type) {
     case CHANGE_OWNER_NAME:
       return state.setIn(['ownerName'], action.name);

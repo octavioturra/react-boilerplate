@@ -21,15 +21,15 @@ class HomePage extends Component {
     return (
       <div>
         <h1>Hello World!</h1>
-        <h2>This is the demo for the <span className="home__text--red">{ projectName }</span> by <a href={'https://twitter.com/' + ownerName} >@{ ownerName }</a></h2>
+        <h2>This is the demo for the <span>{ projectName }</span> by <a href={'https://twitter.com/' + ownerName} >@{ ownerName }</a></h2>
         <div className="form-group">
-          <label className="home__label">Change to your project name:</label>
-          <input className="form-control" type="text" onChange={(evt) => {this.props.actions.asyncChangeProjectName(evt.target.value); }} defaultValue="React.js Boilerplate" value={projectName} />
+          <label>Change to your project name:</label>
+          <input className="form-control" type="text" onChange={(ev) => {this.props.actions.asyncChangeProjectName(ev.target.value); }} value={projectName} />
         </div>
 
-        <div className="form-group">
-          <label className="home__label">Change to your name:</label>
-          <input className="form-control" type="text" onChange={(evt) => {this.props.actions.asyncChangeOwnerName(evt.target.value); }} defaultValue="mxstbr" value={ownerName} />
+        <div>
+          <label>Change to your name:</label>
+          <input className="form-control" type="text" onChange={(ev) => {this.props.actions.asyncChangeOwnerName(ev.target.value); }} value={ownerName} />
         </div>
 
 
